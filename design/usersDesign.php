@@ -14,14 +14,20 @@
             <th>name</th>
             <th>email</th>
             <th>img</th>
+            <?php if($_SESSION['login']['admin'] ==1): ?>
+                <th>delete</th>
+            <?php endif; ?>        
         </tr>
 
         <?php foreach($users as $user): ?>
         <tr>
-            <td><?= $user['id'] ?></td>
-            <td><?= $user['name'] ?></td>
-            <td><?= $user['email'] ?></td>
-            <td><img width="100px" src="upload/<?= $user['img'] ?>"></td>
+            <td><?= $user['id']; ?></td>
+            <td><?= $user['name']; ?></td>
+            <td><?= $user['email']; ?></td>
+            <td><img width="100px" src="upload/<?= $user['img']; ?>"></td>
+            <?php if($_SESSION['login']['admin'] ==1): ?>
+                <td><a href="delete.php?id=<?= $user['id']; ?>">delete</a></td>
+            <?php endif; ?>        
         </tr>
         <?php endforeach; ?>
     </table>

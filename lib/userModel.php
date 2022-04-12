@@ -2,8 +2,8 @@
 
 $connection = mysqli_connect("localhost","root","","udemy_itrax");
 
-function insert($name,$email,$password,$img,$admin){
-    mysqli_query($GLOBALS['connection'],"INSERT INTO `user` (`name`,`email`,`password`,`img`,`admin`) VALUES ('$name','$email','$password','$img','$admin')");
+function insert($name,$email,$password,$img){
+    mysqli_query($GLOBALS['connection'],"INSERT INTO `user` (`name`,`email`,`password`,`img`) VALUES ('$name','$email','$password','$img')");
     return mysqli_affected_rows($GLOBALS['connection']);
 }
 

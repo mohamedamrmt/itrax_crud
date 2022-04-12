@@ -18,9 +18,10 @@ function logout(){
 function attempt($email,$password){
     $connection =  mysqli_connect("localhost","root","","udemy_itrax");
     $query = mysqli_query($connection,"SELECT * FROM `user` WHERE `email` = '$email' && `password` = '$password'");
+    $user_data =  mysqli_fetch_assoc($query); 
     $number_of_rows =  mysqli_num_rows($query);
     if($number_of_rows == 1){
-        $_SESSION['login'] = true;
+        $_SESSION['login'] = $user_data;
         return true;
     }
     return false;

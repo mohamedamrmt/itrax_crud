@@ -8,6 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <?php if(isset($_SESSION['errors'])): ?>
+        <ul>
+            <?php foreach($_SESSION['errors'] as $error): ?>
+                <li style="color:red"><?= $error; ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+    </div>
     <form action="register.php" method="post" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="email" placeholder="email">

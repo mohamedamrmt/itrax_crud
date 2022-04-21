@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['errors_time'] <= time()){
+if(isset($_SESSION['errors_time']) && $_SESSION['errors_time'] <= time()){
     unset($_SESSION['errors']);
 }
 include "lib/userModel.php";

@@ -12,12 +12,17 @@ function select(){
     return mysqli_fetch_all($query,MYSQLI_ASSOC);
 }
 
+function selectById($id){
+    $query = mysqli_query($GLOBALS['connection'],"SELECT * FROM `user` WHERE `id` = $id");
+    return mysqli_fetch_assoc($query);
+}
+
 function delete($id){
     mysqli_query($GLOBALS['connection'],"DELETE FROM `user` WHERE `id` = $id");
     return mysqli_affected_rows($GLOBALS['connection']);
 }
 
-function update($id,$name,$email,$password,$img,$admin){
-    mysqli_query($GLOBALS['connection'],"UPDATE `user` SET `name` = '$name' , `email` = '$email' , `password` = '$password' , `img` = '$img' , `admin` , '$admin'");
+function update($id,$name,$email,$img){
+    mysqli_query($GLOBALS['connection'],"UPDATE `user` SET `name` = '$name' , `email` = '$email'  , `img` = '$img' WHERE `id` = $id");
     return mysqli_affected_rows($GLOBALS['connection']);
 }

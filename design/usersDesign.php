@@ -16,7 +16,8 @@
             <th>img</th>
             <?php if($_SESSION['login']['admin'] ==1): ?>
                 <th>delete</th>
-            <?php endif; ?>        
+                <th>update</th>
+            <?php endif; ?>
         </tr>
 
         <?php foreach($users as $user): ?>
@@ -27,7 +28,8 @@
             <td><img width="100px" src="upload/<?= $user['img']; ?>"></td>
             <?php if($_SESSION['login']['admin'] ==1): ?>
                 <td><a href="delete.php?id=<?= $user['id']; ?>">delete</a></td>
-            <?php endif; ?>        
+                <td><a href="update.php?id=<?= $user['id']; ?>">update</a></td>
+            <?php endif; ?>
         </tr>
         <?php endforeach; ?>
     </table>
